@@ -33,11 +33,23 @@
         padding: 15px;
         margin-top: 10px;
         height: 250px;
+        width: 350px;
+    }
+
+    #sec1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 80px;
+        margin-top: 5px;
     }
 
     button {
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .background_msg {
@@ -45,22 +57,36 @@
         border-radius: 5px;
         padding: 5px;
     }
+
+    #msg{
+        background-color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
 </style>
 <body>
     <main>
-        <h1>Calcular Dias</h1>
-        <label for="data1">Data Inicial</label>
-        <input type="text" name="data1" id="data1" placeholder="ano-mês-dia"><br>
-        <label for="data2">Data Final</label>
-        <input type="text" name="data2" id="data2" placeholder="ano-mês-dia">
-        <button id="btn">Calcular</button>
-        <p id="msg"></p>
+        <section id="sec1">
+            <h1>Calcular Dias</h1>
+            <label for="data1">Data Inicial (ano-mês-dia)</label>
+            <input type="text" name="data1" id="data1"><br>
+            <label for="data2">Data Final (ano-mês-dia)</label>
+            <input type="text" name="data2" id="data2">
+        </section>
+        <section id="sec2">
+            <button id="btn">Calcular</button>
+            <button id="limpar">Limpar</button>
+        </section>
+        <section id="sec3">
+            <p id="msg">Exemplo: 2024-04-30 e 2024-05-27</p>
+        </section>
     </main>
     
     <script>
         let data1 = document.querySelector("#data1");
         let data2 = document.querySelector('#data2');
         let btn = document.querySelector('#btn');
+        let btn2 = document.querySelector('#limpar')
         let msg = document.querySelector('#msg');
 
         btn.addEventListener('click', ()=>{
@@ -71,7 +97,15 @@
             console.log(`Diferença em dias: ${diferencaEmDias}`);
             msg.setAttribute('class', 'background_msg')
             msg.textContent = `A quantidade de dias é ${diferencaEmDias} dias.`
+            msg.style.fontWeight = 'bold'
             
+        })
+
+        btn2.addEventListener('click', ()=>{
+            data1.value = ' '
+            data2.value = ' '
+            msg.innerHTML= 'Exemplo: 2024-04-30 e 2024-05-27'
+            msg.style.fontWeight = 'normal'
         })
 
         
