@@ -69,9 +69,9 @@
         <section id="sec1">
             <h1>Calcular Dias</h1>
             <label for="data1">Data Inicial (ano-mês-dia)</label>
-            <input type="text" name="data1" id="data1"><br>
+            <input type="text" name="data1" id="data1" placeholder="0000-00-00"><br>
             <label for="data2">Data Final (ano-mês-dia)</label>
-            <input type="text" name="data2" id="data2">
+            <input type="text" name="data2" id="data2" placeholder="0000-00-00">
         </section>
         <section id="sec2">
             <button id="btn">Calcular</button>
@@ -102,8 +102,8 @@
         })
 
         btn2.addEventListener('click', ()=>{
-            data1.value = ' '
-            data2.value = ' '
+            data1.value = ''
+            data2.value = ''
             msg.innerHTML= 'Exemplo: 2024-04-30 e 2024-05-27'
             msg.style.fontWeight = 'normal'
         })
